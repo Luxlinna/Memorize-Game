@@ -22,14 +22,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val images = mutableListOf(ic_bitcoin, ic_bunny, ic_plane, ic_lightning)
+        val images = mutableListOf(animal1, animal2, animal3, animal4, animal5)
         // Add each image twice so we can create pair.
         images.addAll(images)
         // Randomize the order of images
         images.shuffle()
 
         buttons = listOf(imageButton1, imageButton2, imageButton3, imageButton4, imageButton5,
-            imageButton6, imageButton7,imageButton8)
+            imageButton6, imageButton7,imageButton8, imageButton9, imageButton10)
 
         cards = buttons.indices.map { index ->
             MemoryCard(images[index], false, false)
@@ -52,17 +52,8 @@ class MainActivity : AppCompatActivity() {
             if (card.isMatched) {
                 button.alpha = 0.5f
             }
-            button.setImageResource(if (card.isFaceUp) card.identifier else ic_code)
+            button.setImageResource(if (card.isFaceUp) card.identifier else animals)
         }
-        // the trhee line below is equal with this one line
-        // button.setImageResource(if (card.isFaceUp) images[index] else ic_code)
-        /*
-        if (card.isFaceUp) {
-            button.setImageResource(images[index])
-        } else {
-            button.setImageResource(ic_code)
-        }
-         */
     }
 
     private fun updateModels(position: Int) {
